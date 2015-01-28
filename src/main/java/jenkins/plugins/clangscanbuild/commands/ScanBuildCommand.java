@@ -56,13 +56,13 @@ public class ScanBuildCommand implements Command{
 		args.add( "xcodebuild" );
 		
 		if( isNotBlank( getScheme() ) ){
-            args.add( "-scheme", getScheme() );
 			// Xcode workspace
             if( isNotBlank( getWorkspace() ) ) {
                 args.add("-workspace", getWorkspace());
             }else{
                 context.log("Using \'"+projectDirectory+"\' as workspace auto search directory");
             }
+            args.add( "-scheme", getScheme() );
 
 			if( isNotBlank( getTarget() ) ){
 				context.log( "Ignoring build target '" + getTarget() + "' because scheme/workspace was provided" );

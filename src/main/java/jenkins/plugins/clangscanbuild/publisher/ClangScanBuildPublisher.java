@@ -214,6 +214,8 @@ public class ClangScanBuildPublisher extends Recorder{
 			instance.setSourceFile( sourceFile );
 		}catch( IOException e ){
 			LOGGER.log( Level.ALL, "Unable to read file or locate clang markers in content: " + report );
+		}catch( InterruptedException e ){
+			LOGGER.log( Level.ALL, "Unable to read file or locate clang markers in content: " + report );
 		}
 
 		return instance;

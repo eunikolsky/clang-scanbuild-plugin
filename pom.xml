@@ -5,7 +5,8 @@
   <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>1.480</version>
+        <!-- Latest LTS -->
+        <version>1.580.3</version>
   </parent>
 
   <groupId>jenkins.plugins.clangscanbuild</groupId>

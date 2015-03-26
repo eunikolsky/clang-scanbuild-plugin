@@ -19,6 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import org.jenkinsci.remoting.RoleChecker;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.QueryParameter;
 
@@ -49,7 +50,11 @@ public class ClangScanBuildToolInstallation extends ToolInstallation implements 
     public String getExecutable( Launcher launcher ) throws IOException, InterruptedException {
         return launcher.getChannel().call( new Callable<String,IOException>() {
 
-			private static final long serialVersionUID = 5437036131007277280L;
+            @Override
+            public void checkRoles(RoleChecker roleChecker) throws SecurityException {
+            }
+
+            private static final long serialVersionUID = 5437036131007277280L;
 
 			public String call() throws IOException {
                 File scanbuild = new File( getHome(), "scan-build" );

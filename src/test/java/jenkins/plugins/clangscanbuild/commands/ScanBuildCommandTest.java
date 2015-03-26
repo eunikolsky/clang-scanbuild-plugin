@@ -24,7 +24,7 @@ public class ScanBuildCommandTest{
 
 		String actual = buildCommandAndReturn( command );
 		
-		String expected = "/ScanBuild -k -v -v -o OutputFolder xcodebuild -activetarget -configuration Debug clean build";
+		String expected = "/ScanBuild -k -v -v -o OutputFolder xcodebuild -activetarget -configuration Debug clean analyze";
 		Assert.assertEquals( expected, actual );
 	}
 	
@@ -43,7 +43,7 @@ public class ScanBuildCommandTest{
 
 		String actual = buildCommandAndReturn( command );
 		
-		String expected = "/ScanBuild -k -v -v -o OutputFolder xcodebuild -workspace myWorkspace -scheme myScheme -configuration myConfig -sdk myTargetSdk clean build";
+		String expected = "/ScanBuild -k -v -v -o OutputFolder xcodebuild -workspace myWorkspace -scheme myScheme -configuration myConfig -sdk myTargetSdk clean analyze";
 		Assert.assertEquals( expected, actual );
 	}
 	
@@ -60,7 +60,7 @@ public class ScanBuildCommandTest{
 		
 		String actual = buildCommandAndReturn( command );
 		
-		String expected = "/ScanBuild -k -v -v -o OutputFolder xcodebuild -target myTarget -configuration myConfig -sdk myTargetSdk clean build";
+		String expected = "/ScanBuild -k -v -v -o OutputFolder xcodebuild -target myTarget -configuration myConfig -sdk myTargetSdk clean analyze";
 		Assert.assertEquals( expected, actual );
 	}
 	
@@ -95,7 +95,7 @@ public class ScanBuildCommandTest{
 		String actual = buildCommandAndReturn( command );
 		
 		// Jenkins core quotes this due to the space in between 'which' and 'clang' .  Not sure if this is OK or not... :(
-		String expected = "/ScanBuild -k -v -v -o OutputFolder --use-cc=`which clang` xcodebuild -workspace myWorkspace -scheme myScheme -configuration myConfig -sdk myTargetSdk clean build";
+		String expected = "/ScanBuild -k -v -v -o OutputFolder --use-cc=`which clang` xcodebuild -workspace myWorkspace -scheme myScheme -configuration myConfig -sdk myTargetSdk clean analyze";
 		Assert.assertEquals( expected, actual );
 	}
 
@@ -116,7 +116,7 @@ public class ScanBuildCommandTest{
 		String actual = buildCommandAndReturn( command );
 		
 		// Jenkins core quotes this due to the space in between 'which' and 'clang' .  Not sure if this is OK or not... :(
-		String expected = "/ScanBuild -k -v -v -o OutputFolder xcodebuild -workspace myWorkspace -scheme myScheme -configuration myConfig -sdk myTargetSdk clean build VALID_ARCHS=i386";
+		String expected = "/ScanBuild -k -v -v -o OutputFolder xcodebuild -workspace myWorkspace -scheme myScheme -configuration myConfig -sdk myTargetSdk clean analyze VALID_ARCHS=i386";
 		Assert.assertEquals( expected, actual );
 	}
 
@@ -136,7 +136,7 @@ public class ScanBuildCommandTest{
 
 		String actual = buildCommandAndReturn( command );
 		
-		String expected = "/ScanBuild -k -v -v -o OutputFolder -h -x somevalue xcodebuild -workspace myWorkspace -scheme myScheme -configuration myConfig -sdk myTargetSdk clean build";
+		String expected = "/ScanBuild -k -v -v -o OutputFolder -h -x somevalue xcodebuild -workspace myWorkspace -scheme myScheme -configuration myConfig -sdk myTargetSdk clean analyze";
 		Assert.assertEquals( expected, actual );
 	}
 
@@ -157,7 +157,7 @@ public class ScanBuildCommandTest{
 
 		String actual = buildCommandAndReturn( command );
 		
-		String expected = "/ScanBuild -k -v -v -o OutputFolder -h -x somevalue xcodebuild -workspace myWorkspace -scheme myScheme -configuration myConfig -sdk myTargetSdk clean build THIS=1 THAT=2";
+		String expected = "/ScanBuild -k -v -v -o OutputFolder -h -x somevalue xcodebuild -workspace myWorkspace -scheme myScheme -configuration myConfig -sdk myTargetSdk clean analyze THIS=1 THAT=2";
 		Assert.assertEquals( expected, actual );
 	}
 	

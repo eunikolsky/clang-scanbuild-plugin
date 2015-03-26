@@ -1,5 +1,6 @@
 package jenkins.plugins.clangscanbuild.reports;
 
+import hudson.model.Run;
 import hudson.util.ChartUtil.NumberOnlyBuildLabel;
 import hudson.util.ColorPalette;
 import hudson.util.DataSetBuilder;
@@ -47,7 +48,7 @@ public class ClangBuildGraph extends Graph{
 		
 		DataSetBuilder<String, NumberOnlyBuildLabel> dataSetBuilder = new DataSetBuilder<String, NumberOnlyBuildLabel>();
 		for( GraphPoint point : points ){
-			dataSetBuilder.add( point.getBugCount(), "bugcount", new NumberOnlyBuildLabel( point.getBuild() ) );
+			dataSetBuilder.add( point.getBugCount(), "bugcount", new NumberOnlyBuildLabel((Run<?, ?>) point.getBuild()) );
 		}
 		
         final JFreeChart chart = ChartFactory.createLineChart(
